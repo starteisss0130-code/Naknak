@@ -517,6 +517,13 @@ public class PlayerMoveController3 : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(from - new Vector3(0f, 0.5f, 0f), dir, moveDistance, layer);
         Debug.DrawRay(from - new Vector3(0f, 0.5f, 0f), dir * moveDistance, Color.red);
 
+
+        if (hit.collider != null)
+        {
+            Debug.Log(hit.collider.name);
+        }
+
+
         // Delayed Evaluation
         //check = MapManager.Instance.IsCollision(from - new Vector3(0f, 0.5f, 0f) + dir * moveDistance - gridPreset)
         //    || (hit.collider != null && hit.collider.CompareTag("Interactable"));

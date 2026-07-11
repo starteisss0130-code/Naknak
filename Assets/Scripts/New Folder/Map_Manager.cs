@@ -40,13 +40,19 @@ public class Map_Manager : MonoBehaviour
         if (currentRoomObject != null)
             Destroy(currentRoomObject);
 
-        currentRoomObject =
-            Instantiate(roomData.roomPrefab, roomRoot);
+        GameObject room = Instantiate(roomData.roomPrefab);
 
-        RoomInstance instance =
-            currentRoomObject.GetComponent<RoomInstance>();
+        Transform bg = room.transform.Find("Sample Map BG");
 
-        instance.Initialize(roomData);
+        if(bg != null)
+        {
+            currentRoomObject = Instantiate(bg.gameObject, roomRoot);
+        }
+
+        //RoomInstance instance =
+        //    currentRoomObject.GetComponent<RoomInstance>();
+
+        //instance.Initialize(roomData);
 
         currentRoom = roomData;
     }
